@@ -45,16 +45,15 @@
 	</thead>
 
 	<tbody class="list_items table-bordered">
-  	<%= form_for(@potluck, url: {action: "update"}) do %> 
+  	<%= form_for(Item.new, url: {controller: "item", action: "update", method: "patch"}) do %>
   		<% @potluck.items.each do |item|  %>
   			<%= fields_for "item[]", item do |item_f| %>
 					<tr class="item_row">
-			
 						<td><%= item_f.text_field :name, class: 'form-control'%></td>
 						<td><%= item_f.text_field :category, class: 'form-control'%></td>
 						<td><%= item_f.text_field :amount, class: 'form-control'%></td>
 						<td><%= item_f.text_field :claimed_by, class: 'form-control'%></td>
-						<td><%= item_f.submit "Update Potluck", class: "btn-primary" %></td>
+						<td><%= item_f.submit "Update", class: "btn-primary" %></td>
 					</tr>
 				<% end %>
 		  <% end %>	

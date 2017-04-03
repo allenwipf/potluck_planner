@@ -3,6 +3,8 @@ class PotluckController < ApplicationController
 	def show
 
 		@potluck = Potluck.find(params[:id])
+		@items = @potluck.items
+
 		
 	end
 
@@ -23,12 +25,15 @@ class PotluckController < ApplicationController
 	end
 
 	def potluck_params
+
+		debugger
 		params.require(:potluck).permit(:title, :location, :description, :date, :time,
 											:party_size, :user_id)
 	end
 
 	def update
 
+		debugger
 		@potluck = Potluck.find(params[:id])
 		@potluck.update_attributes(potluck_params)
 		render 'show'

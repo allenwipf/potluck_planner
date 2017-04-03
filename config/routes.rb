@@ -2,7 +2,13 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-  resources :potluck
+  post "item/:id" => 'item#update'
+    resources :potluck
+  resources :item
+
+  # get 'potluck' => 'potluck#show'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
