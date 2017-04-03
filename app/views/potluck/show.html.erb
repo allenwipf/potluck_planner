@@ -25,11 +25,11 @@
       <%= f.label :user_id %>
       <%= f.number_field :user_id, class: 'form-control' %>
 
-      <%= f.submit "Update Potluck", class: "btn btn-primary" %>
+      <%= f.submit "Update Potluck", class: "btn form_button btn-primary" %>
     <% end %>
   </div>
 </div>
-
+<form action="/item/update" method="post">
 <table class="table">
 	<thead class="">
 		<tr class="table-bordered">
@@ -43,21 +43,25 @@
 			<th><span class ='label label-success' id='new_item'>add item <span class="glyphicon glyphicon-plus"></span> </span></th>
 		</tr>
 	</thead>
-
 	<tbody class="list_items table-bordered">
-  	<%= form_for(Item.new, url: {controller: "item", action: "update", method: "patch"}) do %>
-  		<% @potluck.items.each do |item|  %>
+
+		<% @potluck.items.sort_by {|item| item.id}.reverse.each do |item|  %>
+  		
   			<%= fields_for "item[]", item do |item_f| %>
 					<tr class="item_row">
-						<td><%= item_f.text_field :name, class: 'form-control'%></td>
+					 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+						<td><%= item_f.text_field :name, class: 'form-control item_name'%></td>
 						<td><%= item_f.text_field :category, class: 'form-control'%></td>
 						<td><%= item_f.text_field :amount, class: 'form-control'%></td>
 						<td><%= item_f.text_field :claimed_by, class: 'form-control'%></td>
-						<td><%= item_f.submit "Update", class: "btn-primary" %></td>
+						<td><%= item_f.number_field :potluck_id, class: 'collapse form-control potluck_id'%></td>
+						<td><span class="glyphicon glyphicon-remove  text-danger remove_item"  scope="row" role="button"></span></td>
+
 					</tr>
 				<% end %>
 		  <% end %>	
-	  <% end %>
 	</tbody>
+	</table>
+	<button class="btn btn-default" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
+</form>
 
-</table>

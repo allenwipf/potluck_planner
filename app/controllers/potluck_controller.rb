@@ -8,6 +8,10 @@ class PotluckController < ApplicationController
 		
 	end
 
+	def sorted_items
+ 	   self.items.sort_by {|item| item.id}.reverse
+  	end
+
 	def new
 		@potluck = Potluck.new
 	end
@@ -26,14 +30,13 @@ class PotluckController < ApplicationController
 
 	def potluck_params
 
-		debugger
+
 		params.require(:potluck).permit(:title, :location, :description, :date, :time,
 											:party_size, :user_id)
 	end
 
 	def update
 
-		debugger
 		@potluck = Potluck.find(params[:id])
 		@potluck.update_attributes(potluck_params)
 		render 'show'
