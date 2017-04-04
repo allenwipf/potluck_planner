@@ -1,11 +1,8 @@
 class PotluckController < ApplicationController
 
 	def show
-
 		@potluck = Potluck.find(params[:id])
 		@items = @potluck.items
-
-		
 	end
 
 	def sorted_items
@@ -29,18 +26,14 @@ class PotluckController < ApplicationController
 	end
 
 	def potluck_params
-
-
 		params.require(:potluck).permit(:title, :location, :description, :date, :time,
 											:party_size, :user_id)
 	end
 
 	def update
-
 		@potluck = Potluck.find(params[:id])
 		@potluck.update_attributes(potluck_params)
 		render 'show'
-
 	end
 
 end
