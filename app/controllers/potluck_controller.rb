@@ -6,16 +6,16 @@ class PotluckController < ApplicationController
 	end
 
 	def sorted_items
- 	   self.items.sort_by {|item| item.id}.reverse
-  	end
+ 	  self.items.sort_by {|item| item.id}.reverse
+  end
 
 	def new
 		@potluck = Potluck.new
 	end
 
 	def create
-		
 		@potluck = Potluck.new(potluck_params)
+
 		if @potluck.save
 			redirect_to @potluck
 		else
@@ -26,8 +26,7 @@ class PotluckController < ApplicationController
 	end
 
 	def potluck_params
-		params.require(:potluck).permit(:title, :location, :description, :date, :time,
-											:party_size, :user_id)
+		params.require(:potluck).permit(:title, :location, :description, :date, :time, :party_size, :user_id)
 	end
 
 	def update
