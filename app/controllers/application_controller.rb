@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def load_new_user
     if @current_user.nil?
-      @user = User.new
+      @current_user = User.new
     end
   end
 
