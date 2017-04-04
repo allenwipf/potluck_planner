@@ -1,14 +1,14 @@
-<h1>Potluck Manager!</h1>
-<p>Find me in app/views/static_pages/hme.html.erb</p>
-
-<p><%= @potluck.id %></p>
-<p><%= @potluck.title %></p>
-<p><%= @potluck.description %></p>
-<p><%= @potluck.location %></p>
-<p><%= @potluck.date %></p>
-<p><%= @potluck.time %></p>
-<p><%= @potluck.party_size %></p>
-<p><%= @potluck.user_id %></p>
-<p><%= @potluck.created_at %></p>
-<p><%= @potluck.updated_at %></p>
+<div class="background">
+	<div class="container">
+		<div class="jumbotron jumbo">
+			<div class="container">
+				<h1>Make Potlucks Easy</h1>
+				<p> Join. Create. Share. Reduce your dish repetition with our smart potluck solution.</p>
+				<% if session[:user_id].nil? %>
+					<p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create an Account</a></p>
+				<% end %>
+			</div>
+		</div>
+    </div>
+</div>
 

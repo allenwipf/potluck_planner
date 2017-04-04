@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   post "item/:id" => 'item#update'
-    resources :potluck
+  resources :potluck
   resources :item
+  resources :user
+
+  # get "user" => 'user#get'
+
 
   # get 'potluck' => 'potluck#show'
 

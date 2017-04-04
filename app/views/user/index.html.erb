@@ -1,0 +1,24 @@
+
+<div class="container">
+	<div class="user_intro">
+		<h2>Current Potlucks</h2> 
+	
+		<form action="/potlucks/new" method="get">
+			<button class="btn btn-success admin-potluck-update" type='submit'>Make New Potluck <span class="glyphicon glyphicon-new-window"></span></button>
+		</form>
+	</div>
+
+	<div class="users_potlucks list-group">
+		<% @current_user.potlucks.each do |potluck| %>
+		<div class="list-group-item">
+			<h1> <a href="/potluck?id=<%= potluck.id %>"  > <%= potluck.title %> </a> </h1>
+			<span class="lead"><%= potluck.description %></span><br>
+			<span><span class="badge alert-warning"><%= potluck.party_size %></span> people expected</span>
+			<h4><%= (Time.parse(potluck.date.to_s).strftime('%a, %b %d ')) + " at " + 
+					(Time.parse(potluck.time.to_s).strftime('%l:%M'' %P')) %></h4>
+	        <h4> <%= potluck.location %> </h4>
+	    </div>
+		<% end %>
+	</div>
+</div>
+
