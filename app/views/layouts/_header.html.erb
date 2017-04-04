@@ -5,10 +5,7 @@
 				<h1><a class="title" href="">Potluck Planner</a></h1>
 			</div>
 
-			
-			<!-- flash goes here -->
-			<!-- 		the user is not logged in display -->
-			<% if @current_user %>
+			<!-- 		the user is not logged in display -->			
 			<div class="form-inline">
 				<form class="form-group" action="/login" method="post">
 					<input class="form-control" type="text" name="email" placeholder="email" required>
@@ -19,9 +16,9 @@
 				<button class="form-control btn-primary" data-toggle="modal" data-target="#myModal">Register</button>
 			</div>
 
-				<!-- 		the modal window for signup -->
+			<!-- 		the modal window for signup -->
 			<%= render 'layouts/modal' %>
-			<% end %>
+			
 			<!-- 		if user logged in display -->
 			<% if !session[:user_id].nil? %>
 				<form action="/logout" method="post">
