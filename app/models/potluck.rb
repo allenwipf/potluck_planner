@@ -1,6 +1,6 @@
 class Potluck < ActiveRecord::Base
 	has_many :items  #, dependent :destroy
-	belongs_to :users
+	belongs_to :user
 	validates :title, presence: true
 	validates :location, presence: true
 	validates :description, presence: true
