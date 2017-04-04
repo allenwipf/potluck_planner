@@ -20,7 +20,7 @@
 			<% end %>
 			<!-- 		if user logged in display -->
 			<% if !session[:user_id].nil? %>
-				<form action="login/logout" method="post">
+				<form action="/logout" method="post">
 					<span>WELCOME <%=  User.find(session[:user_id]).name.upcase %> </span>
 					<button class="btn btn-primary navbar-btn">Logout</button>
 				</form>
