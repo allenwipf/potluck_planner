@@ -4,10 +4,6 @@
 			<div >
 				<h1><a class="title" href="">Potluck Planner</a></h1>
 			</div>
-
-			
-			<!-- flash goes here -->
-			<!-- 		the user is not logged in display -->
 			<% if @current_user %>
 			<div class="form-inline">
 				<form class="form-group" action="/login" method="post">
@@ -24,7 +20,7 @@
 			<% end %>
 			<!-- 		if user logged in display -->
 			<% if !session[:user_id].nil? %>
-				<form action="/logout" method="post">
+				<form action="login/logout" method="post">
 					<span>WELCOME <%=  User.find(session[:user_id]).name.upcase %> </span>
 					<button class="btn btn-primary navbar-btn">Logout</button>
 				</form>

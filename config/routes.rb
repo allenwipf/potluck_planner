@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :potluck
   resources :item
   resources :user
+  resources :login
+  post "login/logout" => 'login#destroy'
 
   # get "user" => 'user#get'
 
