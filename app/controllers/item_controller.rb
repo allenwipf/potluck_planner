@@ -9,8 +9,7 @@ class ItemController < ApplicationController
 				current_item.save
 			end
 		end
-	
-		redirect_to 'http://localhost:3000/potluck/1'
+		redirect_to 'http://localhost:3000/potluck/'
 	end
 
 	def create
