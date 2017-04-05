@@ -4,7 +4,7 @@
 
 
     <%= render 'layouts/errors' %>
-    <%= form_for(@current_user, url: {action: "create"}) do |f| %>
+    <%= form_for(@current_user, url:{controller: "user", action: "create"}) do |f| %>
       
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -14,6 +14,9 @@
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :confirm_password %>
+      <%= f.password_field :confirm_password, class: 'form-control' %>
 
       <%= f.submit "Submit", class: "btn form_button btn-primary" %>
     <% end %>

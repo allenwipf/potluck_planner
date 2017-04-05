@@ -17,11 +17,10 @@ class PotluckController < ApplicationController
 		@potluck = Potluck.new(potluck_params)
 
 		if @potluck.save
+			flash[:success] = "Potluck saved successfully! Add items below."
 			redirect_to @potluck
 		else
-			# redirecting to same page deletes instance variable @potluck
 			render 'new'
-			# redirect_to :back
 		end
 	end
 
@@ -31,7 +30,11 @@ class PotluckController < ApplicationController
 
 	def update
 		@potluck = Potluck.find(params[:id])
-		@potluck.update_attributes(potluck_params)
+		if @potluck.update_attributes(potluck_params)
+			flash.now[:success] = "Update successful!"
+		else
+			flash.now[:danger] = "Update unsuccessful. Please make sure all fields are filled."
+		end
 		render 'show'
 	end
 

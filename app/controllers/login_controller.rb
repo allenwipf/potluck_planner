@@ -1,6 +1,5 @@
 class LoginController < ApplicationController
 
-
   def create
 	 user = User.find_by(email: params[:user][:email])
     if user && user.authenticate(params[:user][:password])
@@ -9,10 +8,9 @@ class LoginController < ApplicationController
 	    redirect_to '/user/show'
     else
     	flash[:danger] = 'Wrong username or password'
-    	redirect_to '/'
+    	redirect_to '/user/new'
     end
   end
-
 
 	def destroy
 		session[:user_id] = nil
