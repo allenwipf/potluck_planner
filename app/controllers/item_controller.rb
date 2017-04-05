@@ -9,8 +9,8 @@ class ItemController < ApplicationController
 				current_item.save
 			end
 		end
-	
-		redirect_to 'http://localhost:3000/potluck/1'
+		debugger
+		redirect_to 'http://localhost:3000/potluck/' + params[:potluck_id]
 	end
 
 	def create
