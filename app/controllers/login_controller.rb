@@ -8,7 +8,7 @@ class LoginController < ApplicationController
 	    redirect_to '/user/show'
     else
     	flash[:danger] = 'Wrong username or password'
-    	redirect_to '/user/new'
+    	redirect_to root_path
     end
   end
 
