@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   post "create/:id", to: 'login#create'
   post "item/:id" => 'item#update'
-  resources :potlucks
-  resources :items
+  resources :potluck
+  resources :item
   resources :users
   resources :login
   # post "login/logout" => 'login#destroy'
