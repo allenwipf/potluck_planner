@@ -4,7 +4,7 @@
 			<div >
 				<h1><a class="title" href="">Potluck Planner</a></h1>
 			</div>
-			<% if @current_user %>
+			<% if session[:user_id].nil?%>
 			<div class="form-inline">
 				<form class="form-group" action="/login" method="post">
 					<input class="form-control" type="text" name="email" placeholder="email" required>
@@ -17,7 +17,7 @@
 
 				<!-- 		the modal window for signup -->
 			<%= render 'layouts/modal' %>
-			
+
 			<% end %>
 			<!-- 		if user logged in display -->
 			<% if !session[:user_id].nil? %>
@@ -30,7 +30,7 @@
 		<% if !session[:user_id].nil? %>
 			<ol class="breadcrumb nomargin">
 			  <li><a href="/">Home</a></li>
-			  <li><a href="/user_home">My Potlucks</a></li>
+			  <li><a href="/users/show">My Potlucks</a></li>
 		   </ol>
 		<% end %>
 

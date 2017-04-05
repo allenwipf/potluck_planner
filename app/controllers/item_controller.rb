@@ -9,7 +9,8 @@ class ItemController < ApplicationController
 				current_item.save
 			end
 		end
-	
+
+		##TODO fix this hardcoded value	
 		redirect_to 'http://localhost:3000/potluck/1'
 	end
 
