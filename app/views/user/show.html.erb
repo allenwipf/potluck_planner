@@ -11,7 +11,7 @@ f
 	<div class="users_potlucks list-group">
 		<% @current_user.potlucks.each do |potluck| %>
 		<div class="list-group-item">
-			<h1> <a href="/potluck?id=<%= potluck.id %>"  > <%= potluck.title %> </a> </h1>
+			<h1> <a href="/potluck/<%= potluck.id %>"  > <%= potluck.title %> </a> </h1>
 			<span class="lead"><%= potluck.description %></span><br>
 			<span><span class="badge alert-warning"><%= potluck.party_size %></span> people expected</span>
 			<h4><%= (Time.parse(potluck.date.to_s).strftime('%a, %b %d ')) + " at " + 
