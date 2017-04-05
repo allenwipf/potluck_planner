@@ -15,7 +15,7 @@ class PotluckController < ApplicationController
 
 	def create
 		@potluck = Potluck.new(potluck_params)
-
+		@potluck.user_id = session[:user_id]
 		if @potluck.save
 			redirect_to @potluck
 		else

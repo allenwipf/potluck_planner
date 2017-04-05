@@ -1,9 +1,9 @@
-<h1>Potluck Manager Create New!</h1>
+<h1>What are the details?</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-    <%= form_for(@potluck, url: {action: "create"}) do |f| %>
+    <%= form_for(@potluck, url: {controller: "potluck", action: "create"}) do |f| %>
 
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>
@@ -22,9 +22,6 @@
 
       <%= f.label :party_size %>
       <%= f.number_field :party_size, class: 'form-control' %>
-
-      <%= f.label :user_id %>
-      <%= f.number_field :user_id, class: 'form-control' %>
 
       <%= f.submit "Save Potluck", class: "btn btn-primary" %>
     <% end %>
