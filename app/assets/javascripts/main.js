@@ -19,7 +19,7 @@ function new_item(e){
 
 	var first_row = document.getElementsByClassName("list_items")[0];
 	var potluck_id = document.getElementById("potluck_user_id").value;
-	first_row.insertAdjacentHTML('afterbegin', new_row_info(potluck_user_id));
+	first_row.insertAdjacentHTML('afterbegin', new_row_info(potluck_id));
 
 	add_items_listener();
 	e.preventDefault();
