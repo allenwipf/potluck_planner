@@ -5,7 +5,7 @@ class LoginController < ApplicationController
 	  if !user.nil?
 	    session[:user_id] = user.id
 	    flash[:success] = "You are logged In!"
-	    redirect_to 'user/show'
+	    redirect_to '/users/show'
 	  else
 	    flash[:danger] = "Incorrect email or password"
 	    redirect_to '/'
@@ -13,7 +13,6 @@ class LoginController < ApplicationController
   end
 
 	def destroy
-
 		session[:user_id] = nil
 		flash[:success] = "Successfully logged out"
   		redirect_to root_path
