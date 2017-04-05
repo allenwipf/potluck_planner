@@ -38,8 +38,7 @@ function new_row_info(potluck_id){
 				"<td><input class='form-control' type='text' scope='row' placeholder='No one claimed' id='item_" + rowid + "_claimed_by' name='item[" + rowid + "][claimed_by]' value=''></td>"+
 				"<td><span class='glyphicon glyphicon-remove text-danger remove_item' role='button'></span></td>" +
 				"<td><input class='item_class collapse' id='item_" + rowid + "_name' name='item[" + rowid + "][potluck_id]' value='" +  potluck_id + "'></td>" +
-		    "</tr>"
-		  
+		    "</tr>"	  
 }
 
 
