@@ -1,3 +1,5 @@
+<input id="p_id" type="hidden" value="<%= @potluck.id %>">	
+
 <h1>Update Potluck!</h1>
 
 <div class="row">
@@ -47,7 +49,6 @@
 	<tbody class="list_items table-bordered">
 
 		<% @potluck.items.sort_by {|item| item.id}.reverse.each do |item|  %>
-  		
   			<%= fields_for "item[]", item do |item_f| %>
 					<tr class="item_row">
 					 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
@@ -59,8 +60,8 @@
 						<td><span class="glyphicon glyphicon-remove  text-danger remove_item"  scope="row" role="button"></span></td>
 
 					</tr>
-				<% end %>
-		  <% end %>	
+			<% end %>
+		<% end %>	
 	</tbody>
 	</table>
 	<button class="btn btn-default" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
