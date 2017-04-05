@@ -10,7 +10,7 @@ class PotluckController < ApplicationController
   end
 
 	def new
-		@potluck = Potluck.new
+		@potluck = Potluck.new(:user_id => session[:user_id])
 	end
 
 	def create
