@@ -18,9 +18,9 @@ function add_items_listener(){
 function new_item(e){
 
 	var first_row = document.getElementsByClassName("list_items")[0];
-	var potluck_id = document.getElementsByClassName("potluck_id")[0].value;
+	var potluck_id = document.getElementById("potluck_user_id").value;
 	// var potluck_id = 1
-	first_row.insertAdjacentHTML('afterbegin', new_row_info(potluck_id));
+	first_row.insertAdjacentHTML('afterbegin', new_row_info(potluck_user_id));
 
 	add_items_listener();
 	e.preventDefault();
@@ -49,4 +49,8 @@ function remove_item(e){
 	this.parentNode.parentNode.getElementsByClassName("item_name")[0].value = 'delete';
 	this.parentNode.parentNode.className += " collapse";	
 }
+
+
+
+
 
