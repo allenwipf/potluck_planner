@@ -10,7 +10,7 @@ class ItemController < ApplicationController
 				current_item.save
 			end
 		end
-		redirect_to 'http://localhost:3000/potluck/'+params[:item][params[:item].keys[0]][:potluck_id]
+		redirect_to 'http://localhost:3000/potluck/'+ params[:item][params[:item].keys[0]][:potluck_id]
 	end
 
 	def create
