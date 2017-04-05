@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  post "create/:id", to: 'login#create'
   post "item/:id" => 'item#update'
-  resources :potluck
-  resources :item
-  resources :user
+  resources :potlucks
+  resources :items
+  resources :users
   resources :login
   # post "login/logout" => 'login#destroy'
   post '/logout',  to: 'login#destroy'

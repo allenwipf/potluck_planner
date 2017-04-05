@@ -10,4 +10,8 @@ class StaticPagesController < ApplicationController
 
   def users
   end
+
+  def create
+  end
+  
 end
