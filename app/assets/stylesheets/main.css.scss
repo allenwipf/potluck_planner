@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h1{
+
+	font-size: 1.8em;
+}
+
 .form_button{
 
 	margin-top: 10px;
@@ -19,3 +24,32 @@
 	padding-right: 50px;
 	padding-left: 50px;
 }
+
+.top_header{
+	display:flex;
+	align-items: center;
+	padding: 10px 15px 15px 15px;
+	color: #CCCCCC;
+}
+
+.lower_header{
+
+	text-align: right;
+}
+
+.navbar-inverse{
+
+	margin-bottom: 0px !important;
+}
+
+.navbar-brand {
+	color: #286090 !important;
+	font-size: 1.8em;
+}
+
+.greeting{
+
+	font-family: 'Macondo', cursive !important;
+}
+
+
