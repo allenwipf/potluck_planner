@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   root 'static_pages#home'
-  get '/logout' => 'login#destroy'
+  get  '/logout' => 'login#destroy'
   post "item/:id" => 'item#update'
+  post 'potluck/:id' => 'potluck#destroy'
   resources :potluck
   resources :item
   resources :user

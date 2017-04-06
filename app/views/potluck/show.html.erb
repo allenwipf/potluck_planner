@@ -1,6 +1,6 @@
-<div class="row>
+<div class="row">
 	<input id="p_id" type="hidden" value="<%= @potluck.id %>">
-  <div class="col-xs-6 col-xs-offset-3">
+  <div class="col-xs-6 col-xs-offset-2">
     <%= form_for(@potluck, url: {action: "update"}) do |f| %>
 
       <%= f.label :title %>
@@ -29,17 +29,16 @@
   </div>
 
 	<div class="col-md-3">
-		<a class="btn btn-default share_button" href="/potluck_view/<%@potluck.id%>>" role="button">Shareable Link<span class="glyphicon glyphicon-share"></span></a>
+		<a class="btn btn-default share_button" href="/potluck_view/<%@potluck.id%>>" role="button">Shareable Link  <span class="glyphicon glyphicon-share"></span></a>
 
-		<form action="/potlucks/delete" method="post">
-			<button class="btn btn-danger navbar-btn" onclick="return confirm('Are you sure?')" name="potluck_id" value='<%=@potluck.id%>'>Delete Potluck <span class="glyphicon glyphicon-remove"> </span></button>
+		<form action="/potluck/<%=@potluck.id%>" method="post">
+			<button class="btn btn-danger navbar-btn" onclick="return confirm('Are you sure?')" name="id" value='<%=@potluck.id%>'>Delete Potluck  <span class="glyphicon glyphicon-remove"> </span></button>
 		</form>
 	</div>
 
 </div>
 
-
-<form action="/item/update" method="post">
+<form action="/item/<%=@potluck.id%>'" method="post">
 	<table class="table">
 		<thead class="">
 			<tr class="table-bordered">
@@ -48,10 +47,9 @@
 				<th>Amount</th>
 				<th>Claimed By</th>
 				<th></th>
-				<th></th>
 			</tr>
 			<tr>
-				<th><span class ='label label-success' id='new_item'>add item <span class="glyphicon glyphicon-plus"></span> </span></th>
+				<th><span class ='label label-success' role='button' id='new_item'>add item <span class="glyphicon glyphicon-plus"></span> </span></th>
 			</tr>
 		</thead>
 		<tbody class="list_items table-bordered">
@@ -64,8 +62,9 @@
 							<td><%= item_f.text_field :category, class: 'form-control'%></td>
 							<td><%= item_f.text_field :amount, class: 'form-control'%></td>
 							<td><%= item_f.text_field :claimed_by, class: 'form-control'%></td>
-							<td><%= item_f.number_field :potluck_id, class: 'collapse form-control potluck_id'%></td>
-							<td><span class="glyphicon glyphicon-remove  text-danger remove_item"  scope="row" role="button"></span></td>
+							<td><%= item_f.text_field :delete, :value => "0", class: 'collapse delete_row'%>
+							<%= item_f.number_field :potluck_id, class: 'collapse form-control potluck_id'%>
+							<span class="glyphicon glyphicon-remove  text-danger remove_item"  scope="row" role="button"></span></td>
 						</tr>
 				<% end %>
 			<% end %>	

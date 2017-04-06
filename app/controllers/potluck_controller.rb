@@ -24,6 +24,17 @@ class PotluckController < ApplicationController
 		end
 	end
 
+	def destroy
+	  potluck = Potluck.find(params[:id])
+	  if potluck.authorized_user(session["user_id"])
+	  	potluck.delete
+	  end
+	    flash[:danger] = "Potluck deleted."
+	    redirect_to("/user/show")
+	end
+
+
+
 	def potluck_params
 		params.require(:potluck).permit(:title, :location, :description, :date, :time, :party_size, :user_id)
 	end
@@ -36,6 +47,6 @@ class PotluckController < ApplicationController
 			flash.now[:danger] = "Update unsuccessful. Please make sure all fields are filled."
 		end
 		render 'show'
-	end
+    end
 
 end

@@ -18,6 +18,7 @@ function add_items_listener(){
 function new_item(e){
 
 	var first_row = document.getElementsByClassName("list_items")[0];
+
 	var potluck_id = document.getElementById("p_id").value;
 	first_row.insertAdjacentHTML('afterbegin', new_row_info(potluck_id));
 
@@ -35,8 +36,9 @@ function new_row_info(potluck_id){
 				"<td><input class='form-control' type='text' scope='row' placeholder='Category' id='item_" + rowid + "_category' name='item[" + rowid + "][category]' value=''></td>"+
 				"<td><input class='form-control' type='text' scope='row' placeholder='12 pack, ect.' id='item_" + rowid + "_amount' name='item[" + rowid + "][amount]' value=''></td>"+
 				"<td><input class='form-control' type='text' scope='row' placeholder='No one claimed' id='item_" + rowid + "_claimed_by' name='item[" + rowid + "][claimed_by]' value=''></td>"+
-				"<td><span class='glyphicon glyphicon-remove text-danger remove_item' role='button'></span></td>" +
-				"<td><input class='item_class collapse' id='item_" + rowid + "_name' name='item[" + rowid + "][potluck_id]' value='" +  potluck_id + "'></td>" +
+				"<td class='nopadding'><input class='collapse delete_row' type='text' name='row_" + rowid + "[delete]' value='0'>"+
+				"<span class='glyphicon glyphicon-remove text-danger remove_item' role='button'></span>" +
+				"<input class='item_class collapse' id='item_" + rowid + "_name' name='item[" + rowid + "][potluck_id]' value='" +  potluck_id + "'></td>" +
 		    "</tr>"	  
 
 }
@@ -45,7 +47,7 @@ function new_row_info(potluck_id){
 // Changes the name of an item to "delete" and collapses parent to make it invisible.
 function remove_item(e){
 
-	this.parentNode.parentNode.getElementsByClassName("item_name")[0].value = 'delete';
+	this.parentNode.parentNode.getElementsByClassName("delete_row")[0].value = '1';
 	this.parentNode.parentNode.className += " collapse";	
 }
 
