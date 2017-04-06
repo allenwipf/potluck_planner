@@ -1,8 +1,7 @@
 class PotluckController < ApplicationController
 
 	def show
-		@potluck = Potluck.find(params[:id])
-		@items = @potluck.items
+		@potluck = Potluck.exists?(params[:id]) ? Potluck.find(params[:id]) : nil 
 	end
 
 	def sorted_items
@@ -45,7 +44,6 @@ class PotluckController < ApplicationController
 	def update
 		@potluck = Potluck.find(params[:id])
 		if @potluck.authorized_user(session["user_id"])
-
 			@potluck = Potluck.find(params[:id])
 			if @potluck.update_attributes(potluck_params)
 				flash.now[:success] = "Update successful!"
