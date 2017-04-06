@@ -6,7 +6,7 @@
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">
 				<% if !@current_user.id.nil? %>
-				    <li><a href="/user/shows">My Potlucks</a></li>
+				    <li><a href="/user/shows"><span class="glyphicon glyphicon-list"></span>  My Potlucks</a></li>
 					<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>  Logout</a></li>
 				<% else  %>
 					<%= render 'layouts/loginModal' %>
@@ -18,13 +18,12 @@
 			</ul>
 	  </div>
 	</nav>
-
 	
 	<ol class="breadcrumb lower_header">
 		<% if !@current_user.id.nil? %>
-	 		<li class="greeting">WELCOME <%= @current_user.name.upcase %></li>
+	 		<li class="greeting">Welcome  <%= @current_user.name.downcase.capitalize %></li>
 	   <% else %>
 	   		<li class="greeting">Oh, Hi There!</li>
 	   <% end %>
 	</ol>
-<header>
+</header>

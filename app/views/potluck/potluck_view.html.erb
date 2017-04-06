@@ -45,7 +45,9 @@
 		</form>
 		<span>
 			<% if session[:user_id] != nil && @potluck_info.authorized_user(session[:user_id]) %>
-				<a class="btn btn-default share_button" href="/potluck/<%=@potluck_info.id%>" role="button">Admin Settings <span class="glyphicon glyphicon-share"></span></a>
+				<form action="/potluck/<%=@potluck_info.id%>" >
+					<button class="btn btn-default share_button" type='submit'>Admin Settings <span class="glyphicon glyphicon-pencil"></span></button>
+				</form>
 			<% end %>
 		</span>
 	</div>
