@@ -2,7 +2,11 @@
 @import "bootstrap";
 
 .button_margin{
-	margin: 10px;
+	margin: 10px 0 10px 0;
+}
+
+.margin{
+	margin: 15px 0 15px 0;
 }
 
 .background{
@@ -37,12 +41,12 @@
 }
 
 .navbar-brand {
-	color: #286090 !important;
+	color: #286090;
 	font-size: 2em;
 	font-weight: 600;
 }
-.navbar-brand:hover{
-	color:white;
+.navbar-brand :hover{
+	color: white;
 }
 
 .greeting{

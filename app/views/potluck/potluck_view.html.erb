@@ -1,16 +1,15 @@
 <!-- STILL WORKING ON THIS -->
 <% if @potluck_info %>
 
-	<div class="container">
+	<div class="container col-md-6 col-md-offset-3">
 		
 		<div >
-			<h1> <%= @potluck_info.title %> </h1>
-			<span class="lead"><%= @potluck_info.description %></span><br>
-			<span class="badge alert-warning"><%= @potluck_info.party_size %> people expected</span>
-			<br>
-			<h4> <span class="label label-default">When:</span>  <%= (Time.parse(@potluck_info.date.to_s).strftime('%a, %b %d ')) + " at " + 
+			<h1> <%= @potluck_info.title.capitalize %> </h1>
+			<span class="lead margin"><%= @potluck_info.description.capitalize %></span><br>
+			<span class="badge alert-warning button_margin"><%= @potluck_info.party_size %> people expected</span>
+			<h4 class="margin"> <span class="label label-default">When:</span>  <%= (Time.parse(@potluck_info.date.to_s).strftime('%a, %b %d ')) + " at " + 
 					(Time.parse(@potluck_info.time.to_s).strftime('%l:%M'' %P')) %></h4>
-	        <h4> <span class="label label-default text-black">Where:</span> <%= @potluck_info.location %> </h4>	
+	        <h4 class="margin"> <span class="label label-default text-black">Where:</span> <%= @potluck_info.location %> </h4>	
 		</div>
 
 		<form action="/item/<%=@potluck_info.id%>'" method="post">
@@ -25,7 +24,6 @@
 					</tr>
 				</thead>
 				<tbody class="list_items">
-
 					<% @potluck_info.items.sort_by {|item| item.id}.reverse.each do |item|  %>
 			  			<%= fields_for "item[]", item do |item_f| %>
 								<tr class="item_row">
@@ -33,7 +31,7 @@
 									<td><%= item_f.text_field :name, disabled: true, class: 'item_name no_edit'%></td>
 									<td><%= item_f.text_field :category, disabled: true,  placeholder: "category", class: 'no_edit'%></td>
 									<td><%= item_f.text_field :amount, disabled: true,  placeholder: "amount", class: 'no_edit'%></td>
-									<td><%= item_f.text_field :claimed_by, placeholder: "claim!", class: 'form-control'%></td>
+									<td><%= item_f.text_field :claimed_by, placeholder: "claim!"%></td>
 									<td><%= item_f.text_field :delete, :value => "0", readonly: true, class: 'collapse delete_row'%>
 									<%= item_f.number_field :potluck_id, readonly: true, class: 'collapse form-control potluck_id'%></td>
 								</tr>
@@ -41,8 +39,9 @@
 					<% end %>	
 				</tbody>
 			</table>
-			<button class="btn btn-success" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
+			<button class="btn btn-success button_margin" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
 		</form>
+
 		<span>
 			<% if session[:user_id] != nil && @potluck_info.authorized_user(session[:user_id]) %>
 				<a class="btn btn-default share_button" href="/potluck/<%=@potluck_info.id%>" role="button">Admin Settings <span class="glyphicon glyphicon-share"></span></a>
