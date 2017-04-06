@@ -44,10 +44,14 @@ class PotluckController < ApplicationController
 
 	def update
 		@potluck = Potluck.find(params[:id])
-		if @potluck.update_attributes(potluck_params)
-			flash.now[:success] = "Update successful!"
-		else
-			flash.now[:danger] = "Update unsuccessful. Please make sure all fields are filled."
+		if @potluck.authorized_user(session["user_id"])
+
+			@potluck = Potluck.find(params[:id])
+			if @potluck.update_attributes(potluck_params)
+				flash.now[:success] = "Update successful!"
+			else
+				flash.now[:danger] = "Update unsuccessful. Please make sure all fields are filled."
+			end
 		end
 		render 'show'
     end

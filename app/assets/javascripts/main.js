@@ -32,10 +32,10 @@ function new_item(e){
 function new_row_info(potluck_id){
 	var rowid =  Date.now();
 	return  "<tr class='item_row'>"+
-				"<td><input class='item_name form-control' type='text' placeholder='Item Name' id='item_" + rowid + "_name' name='item[" + rowid + "][name]' value=''></td>"+
+				"<td><input class='item_name form-control' type='text' placeholder='item Name' id='item_" + rowid + "_name' name='item[" + rowid + "][name]' value=''></td>"+
 				"<td><input class='form-control' type='text' scope='row' placeholder='Category' id='item_" + rowid + "_category' name='item[" + rowid + "][category]' value=''></td>"+
 				"<td><input class='form-control' type='text' scope='row' placeholder='12 pack, ect.' id='item_" + rowid + "_amount' name='item[" + rowid + "][amount]' value=''></td>"+
-				"<td><input class='form-control' type='text' scope='row' placeholder='No one claimed' id='item_" + rowid + "_claimed_by' name='item[" + rowid + "][claimed_by]' value=''></td>"+
+				"<td><input class='form-control' type='text' scope='row' placeholder='no one claimed' id='item_" + rowid + "_claimed_by' name='item[" + rowid + "][claimed_by]' value=''></td>"+
 				"<td class='nopadding'><input class='collapse delete_row' type='text' name='row_" + rowid + "[delete]' value='0'>"+
 				"<span class='glyphicon glyphicon-remove text-danger remove_item' role='button'></span>" +
 				"<input class='item_class collapse' id='item_" + rowid + "_name' name='item[" + rowid + "][potluck_id]' value='" +  potluck_id + "'></td>" +

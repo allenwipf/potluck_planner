@@ -24,16 +24,16 @@
 						<th></th>
 					</tr>
 				</thead>
-				<tbody class="list_items table-bordered">
+				<tbody class="list_items">
 
 					<% @potluck_info.items.sort_by {|item| item.id}.reverse.each do |item|  %>
 			  			<%= fields_for "item[]", item do |item_f| %>
 								<tr class="item_row">
 								 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-									<td><%= item_f.text_field :name, readonly: true, class: 'form-control item_name'%></td>
-									<td><%= item_f.text_field :category, readonly: true, class: 'form-control'%></td>
-									<td><%= item_f.text_field :amount, readonly: true, class: 'form-control'%></td>
-									<td><%= item_f.text_field :claimed_by, class: 'form-control'%></td>
+									<td><%= item_f.text_field :name, disabled: true, class: 'item_name no_edit'%></td>
+									<td><%= item_f.text_field :category, disabled: true,  placeholder: "category", class: 'no_edit'%></td>
+									<td><%= item_f.text_field :amount, disabled: true,  placeholder: "amount", class: 'no_edit'%></td>
+									<td><%= item_f.text_field :claimed_by, placeholder: "claim!", class: 'form-control'%></td>
 									<td><%= item_f.text_field :delete, :value => "0", readonly: true, class: 'collapse delete_row'%>
 									<%= item_f.number_field :potluck_id, readonly: true, class: 'collapse form-control potluck_id'%></td>
 								</tr>
