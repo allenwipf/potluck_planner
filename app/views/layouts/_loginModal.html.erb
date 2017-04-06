@@ -13,7 +13,6 @@
         </div>
 
           <div class="modal_form">
-            <%= render 'layouts/errors' %>
               <%= form_for(@current_user, url:{controller: "login", action: "create"}, :html => {:class => 'form-group'}) do |f| %>
                 <%= f.label :email %>
                 <%= f.text_field :email, class: 'form-control input-sm' %>
