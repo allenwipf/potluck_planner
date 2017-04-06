@@ -1,11 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-h1{
-
+/*h1{
 	font-size: 1.8em;
-
-}
+}*/
 
 .form_button{
 	margin-top: 10px;
@@ -35,7 +33,6 @@ h1{
 }
 
 .lower_header{
-
 	text-align: right;
 }
 
@@ -46,15 +43,18 @@ h1{
 
 .navbar-brand {
 	color: #286090 !important;
-	font-size: 1.8em;
+	font-size: 2em;
+	font-weight: 600;
+}
+.navbar-brand:hover{
+	color:white;
 }
 
 .greeting{
-
 	font-family: 'Macondo', cursive !important;
 }
 
 .no_edit{
-	    border: 0;
+	border: 0;
     box-shadow: none;
 }
