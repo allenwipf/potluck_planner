@@ -1,6 +1,6 @@
 <header>
 	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
+	  <div class="container">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="/">Potluck Planner </a>
 	    </div>
@@ -20,11 +20,14 @@
 	</nav>
 
 	
-	<ol class="breadcrumb lower_header">
-		<% if !@current_user.id.nil? %>
-	 		<li class="greeting">WELCOME <%= @current_user.name.upcase %></li>
-	   <% else %>
-	   		<li class="greeting">Oh, Hi There!</li>
-	   <% end %>
-	</ol>
+	<div class="breadcrumb lower_header">
+		<div class="container">
+			<% if !@current_user.id.nil? %>
+			<li class="greeting">WELCOME <%= @current_user.name.upcase %></li>
+			<% else %>
+			<li class="greeting">Oh, Hi There!</li>
+			<% end %>			
+		</div>
+	</div>
+
 <header>
