@@ -1,5 +1,4 @@
 class ItemController < ApplicationController
-
 	def update
 		potluck = Potluck.find(params[:id])
 		if potluck.authorized_user(session["user_id"])
@@ -46,8 +45,6 @@ class ItemController < ApplicationController
 		end
 		redirect_to(:back)
 	end
-
-
 
 
 	def item_params(item)

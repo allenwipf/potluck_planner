@@ -18,9 +18,27 @@
 			</ul>
 	  </div>
 	</nav>
-
-	
 	<ol class="breadcrumb lower_header">
+			<% if @current_user.id.nil? %>
+				<div class="form-inline">
+			        <%= form_for(@current_user, url:{controller: "login", action: "create"}) do |f| %>
+			          <%= f.text_field :email, placeholder: "email",  class: 'form-control' %>
+			          <%= f.password_field :password, placeholder: "password", class: 'form-control' %>
+			          <%= f.submit "Submit", class: "btn form_button btn-primary" %>
+			        <% end %>
+					<button class="form-control btn-primary" data-toggle="modal" data-target="#myModal">Register</button>
+				</div>
+
+				<%= render 'layouts/modal' %>
+			<% end %>
+			<!-- 		if user logged in display -->
+			<% if !@current_user.id.nil? %>
+				<form action="/logout" method="post">
+					<span>WELCOME <%= @current_user.name %> </span>
+					<button class="btn btn-primary navbar-btn">Logout</button>
+				</form>
+			<% end %>
+		</div>
 		<% if !@current_user.id.nil? %>
 	 		<li class="greeting">WELCOME <%= @current_user.name.upcase %></li>
 	   <% else %>
