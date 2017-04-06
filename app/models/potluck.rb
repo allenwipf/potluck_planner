@@ -8,4 +8,11 @@ class Potluck < ActiveRecord::Base
 	validates :date, presence: true
 	validates :time, presence: true
 	validates :user_id, presence: true
+
+
+  def authorized_user(id)
+		if self.user_id == id
+			return true
+		end
+	end
 end

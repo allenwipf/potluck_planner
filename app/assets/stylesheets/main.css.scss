@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h1{
+
+	font-size: 1.8em;
+
+}
+
 .form_button{
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -21,8 +27,34 @@
 	padding: 70px 0 380px 0;
 }
 
-.fill { 
-    min-height: 100%;
-    height: 100%;
-    width: 100%;
+.top_header{
+	display:flex;
+	align-items: center;
+	padding: 10px 15px 15px 15px;
+	color: #CCCCCC;
+}
+
+.lower_header{
+
+	text-align: right;
+}
+
+.navbar-inverse{
+
+	margin-bottom: 0px !important;
+}
+
+.navbar-brand {
+	color: #286090 !important;
+	font-size: 1.8em;
+}
+
+.greeting{
+
+	font-family: 'Macondo', cursive !important;
+}
+
+.no_edit{
+	    border: 0;
+    box-shadow: none;
 }

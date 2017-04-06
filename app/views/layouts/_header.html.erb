@@ -1,36 +1,30 @@
 <header>
-	<ul class="navbar navbar-inverse">	
-		<div class="top_header">
-			<div >
-				<h1><a class="title" href="">Potluck Planner</a></h1>
-			</div>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">Potluck Planner </a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<% if !@current_user.id.nil? %>
+				    <li><a href="/user/shows">My Potlucks</a></li>
+					<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>  Logout</a></li>
+				<% else  %>
+					<%= render 'layouts/loginModal' %>
+					<%= render 'layouts/modal' %>
+				 	   <li><a href="#" data-toggle="modal" data-target="#login_modal"><span class="glyphicon glyphicon-user"></span>Log In</a></li>
+				 	   <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
+				    </ol>
+				<% end %>
+			</ul>
+	  </div>
+	</nav>
 
-			<% if @current_user.id.nil? %>
-				<div class="form-inline">
-			        <%= form_for(@current_user, url:{controller: "login", action: "create"}) do |f| %>
-			          <%= f.text_field :email, placeholder: "email",  class: 'form-control' %>
-			          <%= f.password_field :password, placeholder: "password", class: 'form-control' %>
-			          <%= f.submit "Submit", class: "btn form_button btn-primary" %>
-			        <% end %>
-					<button class="form-control btn-primary" data-toggle="modal" data-target="#myModal">Register</button>
-				</div>
-
-				<%= render 'layouts/modal' %>
-			<% end %>
-			<!-- 		if user logged in display -->
-			<% if !@current_user.id.nil? %>
-				<form action="/logout" method="post">
-					<span>WELCOME <%= @current_user.name %> </span>
-					<button class="btn btn-primary navbar-btn">Logout</button>
-				</form>
-			<% end %>
-		</div>
+	
+	<ol class="breadcrumb lower_header">
 		<% if !@current_user.id.nil? %>
-			<ol class="breadcrumb nomargin">
-			  <li><a href="/">Home</a></li>
-			  <li><a href="/user/show">My Potlucks</a></li>
-		   </ol>
-		<% end %>
-
-	</ul>
-</header>
+	 		<li class="greeting">WELCOME <%= @current_user.name.upcase %></li>
+	   <% else %>
+	   		<li class="greeting">Oh, Hi There!</li>
+	   <% end %>
+	</ol>
+<header>

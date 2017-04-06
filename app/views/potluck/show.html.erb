@@ -1,70 +1,92 @@
-<div class="container">
-	<input id="p_id" type="hidden" value="<%= @potluck.id %>">	
+<div class='container'>
+	<% if @potluck %>
 
-	<h1>Update Potluck!</h1>
+		<% if session[:user_id] != nil && @potluck.authorized_user(session[:user_id]) %>
 
-	<div class="row">
-	  <div class="col-md-6 col-md-offset-3">
-	    <%= form_for(@potluck, url: {action: "update"}) do |f| %>
 
-	      <%= f.label :title %>
-	      <%= f.text_field :title, class: 'form-control' %>
+			<div class="row">
+				<input id="p_id" type="hidden" value="<%= @potluck.id %>">
+			  <div class="col-xs-6 col-xs-offset-2">
+			    <%= form_for(@potluck, url: {action: "update"}) do |f| %>
 
-	      <%= f.label :location %>
-	      <%= f.text_field :location, class: 'form-control' %>
+			      <%= f.label :title %>
+			      <%= f.text_field :title, class: 'form-control' %>
 
-	      <%= f.label :description %>
-	      <%= f.text_field :description, class: 'form-control' %>
+			      <%= f.label :location %>
+			      <%= f.text_field :location, class: 'form-control' %>
 
-	      <%= f.label :date %>
-	      <%= f.date_field :date, class: 'form-control' %>
+			      <%= f.label :description %>
+			      <%= f.text_field :description, class: 'form-control' %>
 
-	      <%= f.label :time %>
-	      <%= f.time_field :time, class: 'form-control' %>
+			      <%= f.label :date %>
+			      <%= f.date_field :date, class: 'form-control' %>
 
-	      <%= f.label :party_size %>
-	      <%= f.number_field :party_size, class: 'form-control' %>
+			      <%= f.label :time %>
+			      <%= f.time_field :time, class: 'form-control' %>
 
-	      <%= f.label :user_id, class: 'collapse'  %>
-	      <%= f.number_field :user_id, class: 'form-control collapse' %>
+			      <%= f.label :party_size %>
+			      <%= f.number_field :party_size, class: 'form-control' %>
 
-	      <%= f.submit "Update Potluck", class: "btn form_button btn-primary" %>
-	    <% end %>
-	  </div>
-	</div>
-	<form action="/item/update" method="post">
-	<table class="table">
-		<thead class="">
-			<tr class="table-bordered">
-				<th>Item Name</th>
-				<th>Category</th>
-				<th>Amount</th>
-				<th>Claimed By</th>
-				<th></th>
-				<th></th>
-			</tr>
-			<tr>
-				<th><span class ='label label-success' id='new_item'>add item <span class="glyphicon glyphicon-plus"></span> </span></th>
-			</tr>
-		</thead>
-		<tbody class="list_items table-bordered">
+			      <%= f.label :user_id, class: 'collapse'  %>
+			      <%= f.number_field :user_id, class: 'form-control collapse' %>
 
-			<% @potluck.items.sort_by {|item| item.id}.reverse.each do |item|  %>
-	  			<%= fields_for "item[]", item do |item_f| %>
-						<tr class="item_row">
-						 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-							<td><%= item_f.text_field :name, class: 'form-control item_name'%></td>
-							<td><%= item_f.text_field :category, class: 'form-control'%></td>
-							<td><%= item_f.text_field :amount, class: 'form-control'%></td>
-							<td><%= item_f.text_field :claimed_by, class: 'form-control'%></td>
-							<td><%= item_f.number_field :potluck_id, class: 'collapse form-control potluck_id'%></td>
-							<td><span class="glyphicon glyphicon-remove  text-danger remove_item"  scope="row" role="button"></span></td>
+			      <%= f.submit "Update Potluck", class: "btn form_button btn-primary" %>
+			    <% end %>
+			  </div>
 
-						</tr>
-				<% end %>
-			<% end %>	
-		</tbody>
-		</table>
-		<button class="btn btn-default" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
-	</form>
+				<div class="col-md-3">
+					<a class="btn btn-default share_button" href="/potluck_view/<%=@potluck.id%>" role="button">Shareable Link  <span class="glyphicon glyphicon-share"></span></a>
+
+					<form action="/potluck/<%=@potluck.id%>" method="post">
+						<button class="btn btn-danger navbar-btn" onclick="return confirm('Are you sure?')" name="id" value='<%=@potluck.id%>'>Delete Potluck  <span class="glyphicon glyphicon-remove"> </span></button>
+					</form>
+				</div>
+
+			</div>
+			<% if @potluck.items %>
+				<form action="/item/<%=@potluck.id%>'" method="post">
+					<table class="table">
+						<thead class="">
+							<tr class="table-bordered">
+								<th>Item Name</th>
+								<th>Category</th>
+								<th>Amount</th>
+								<th>Claimed By</th>
+								<th></th>
+							</tr>
+							<tr>
+								<th><span class ='label label-success' role='button' id='new_item'>add item <span class="glyphicon glyphicon-plus"></span> </span></th>
+							</tr>
+						</thead>
+						<tbody class="list_items table-bordered">
+
+							<% @potluck.items.sort_by {|item| item.id}.reverse.each do |item|  %>
+					  			<%= fields_for "item[]", item do |item_f| %>
+										<tr class="item_row">
+										 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+											<td><%= item_f.text_field :name, placeholder: "item name", class: 'form-control item_name'%></td>
+											<td><%= item_f.text_field :category, placeholder: "category", class: 'form-control'%></td>
+											<td><%= item_f.text_field :amount, placeholder: "12 pack, ect.", class: 'form-control'%></td>
+											<td><%= item_f.text_field :claimed_by, placeholder: "no one claimed", class: 'form-control'%></td>
+											<td><%= item_f.text_field :delete, :value => "0", class: 'collapse delete_row'%>
+											<%= item_f.number_field :potluck_id, class: 'collapse form-control potluck_id'%>
+											<span class="glyphicon glyphicon-remove  text-danger remove_item"  scope="row" role="button"></span></td>
+										</tr>
+								<% end %>
+							<% end %>	
+						</tbody>
+					</table>
+					<button class="btn btn-default" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
+				</form>
+			<% else %>
+				<p> There are no items for this potluck </p>
+			<% end %>
+
+		<% else %> 
+			<h4 class="alert alert-danger" role="alert"> You are not authorized to view this page!</h5>
+		<% end %>
+
+	<% else %>
+		<h4 class="alert alert-warning" role="alert">There is no potluck here!</h4>
+	<% end %> 
 </div>
