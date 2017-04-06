@@ -2,7 +2,6 @@
 @import "bootstrap";
 
 .form_button{
-
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -10,12 +9,20 @@
 .background{
     background-image: url("potluck2.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
+    background-position:center;
 }
 
 .modal_form{
-
 	padding-right: 50px;
 	padding-left: 50px;
+}
+
+.jumbo_padding { 
+	padding: 70px 0 380px 0;
+}
+
+.fill { 
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
 }

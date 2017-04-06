@@ -1,5 +1,4 @@
 class ItemController < ApplicationController
-
 	def update
 		potluck_id = params[:item][params[:item].keys[0]][:potluck_id]
 		params[:item].each do |key, item|
@@ -19,5 +18,4 @@ class ItemController < ApplicationController
 	def item_params(item)
 		item.permit(:name, :category, :amount, :claimed_by, :potluck_id)
 	end
-	
 end

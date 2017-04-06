@@ -1,13 +1,26 @@
 <div class="background">
-	<div class="container">
+	<div class="container jumbo_padding">
 		<div class="jumbotron jumbo">
 			<div class="container">
 				<h1>Make Potlucks Easy</h1>
 				<p> Join. Create. Share. Reduce your dish repetition with our smart potluck solution.</p>
 				<% if session[:user_id].nil? %>
-					<p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create an Account</a></p>
-				<% end %>
+				<p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create an Account</a></p>
+			<% end %>
 			</div>
 		</div>
-    </div>
+	</div>
 </div>
+
+
+<!-- <div id="mycarousel" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner">
+		<div class="item active">
+			<img src="http://eskipaper.com/images/broken-glass-3.jpg" alt="" class="img-responsive">
+			<div class="carousel-caption">
+				<h1>“Being an Entrepreneur is like eating glass and staring into the abyss of death.”</h1>
+				-Elon Musk
+			</div>
+		</div>
+	</div>
+</div> -->
