@@ -40,7 +40,6 @@ function new_row_info(potluck_id){
 				"<span class='glyphicon glyphicon-remove text-danger remove_item' role='button'></span>" +
 				"<input class='item_class collapse' id='item_" + rowid + "_name' name='item[" + rowid + "][potluck_id]' value='" +  potluck_id + "'></td>" +
 		    "</tr>"	  
-
 }
 
 
