@@ -1,7 +1,6 @@
 window.addEventListener("load", function(){
 
     document.getElementById("new_item").addEventListener("click", new_item);
-
     add_items_listener();
 });
 
@@ -18,12 +17,11 @@ function add_items_listener(){
 function new_item(e){
 
 	var first_row = document.getElementsByClassName("list_items")[0];
-
 	var potluck_id = document.getElementById("p_id").value;
 	first_row.insertAdjacentHTML('afterbegin', new_row_info(potluck_id));
 
 	add_items_listener();
-	e.preventDefault();
+	// e.preventDefault();
 }
 
 // Creates a new comment row.
@@ -40,7 +38,6 @@ function new_row_info(potluck_id){
 				"<span class='glyphicon glyphicon-remove text-danger remove_item' role='button'></span>" +
 				"<input class='item_class collapse' id='item_" + rowid + "_name' name='item[" + rowid + "][potluck_id]' value='" +  potluck_id + "'></td>" +
 		    "</tr>"	  
-
 }
 
 

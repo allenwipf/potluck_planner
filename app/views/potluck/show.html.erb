@@ -1,3 +1,4 @@
+<%= javascript_include_tag "add_items.js" %>
 <div class='container'>
 	<% if @potluck %>
 
@@ -44,7 +45,7 @@
 
 			</div>
 			<% if @potluck.items %>
-				<form action="/item/<%=@potluck.id%>'" method="post">
+				<form action="/item/<%=@potluck.id%>" method="post">
 					<table class="table">
 						<thead class="">
 							<tr class="table-bordered">
@@ -55,7 +56,9 @@
 								<th></th>
 							</tr>
 							<tr>
-								<th><span class ='label label-success' role='button' id='new_item'>add item <span class="glyphicon glyphicon-plus"></span> </span></th>
+								<th>
+									<span class ='label label-success' role='button' id='new_item'>add item <span class="glyphicon glyphicon-plus"></span> </span>
+								</th>
 							</tr>
 						</thead>
 						<tbody class="list_items table-bordered">
@@ -63,20 +66,20 @@
 							<% @potluck.items.sort_by {|item| item.id}.reverse.each do |item|  %>
 					  			<%= fields_for "item[]", item do |item_f| %>
 										<tr class="item_row">
-										 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-											<td><%= item_f.text_field :name, placeholder: "item name", class: 'form-control item_name'%></td>
+										    <td><%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+												<%= item_f.text_field :name, placeholder: "item name", class: 'form-control item_name'%></td>
 											<td><%= item_f.text_field :category, placeholder: "category", class: 'form-control'%></td>
 											<td><%= item_f.text_field :amount, placeholder: "12 pack, ect.", class: 'form-control'%></td>
 											<td><%= item_f.text_field :claimed_by, placeholder: "no one claimed", class: 'form-control'%></td>
 											<td><%= item_f.text_field :delete, :value => "0", class: 'collapse delete_row'%>
 											<%= item_f.number_field :potluck_id, class: 'collapse form-control potluck_id'%>
-											<span class="glyphicon glyphicon-remove  text-danger remove_item"  scope="row" role="button"></span></td>
+											<span class="glyphicon glyphicon-remove text-danger remove_item" role="button"></span></td>
 										</tr>
 								<% end %>
 							<% end %>	
 						</tbody>
 					</table>
-					<button class="btn btn-default" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
+					<button class="btn btn-default" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></span></button>
 				</form>
 			<% else %>
 				<p> There are no items for this potluck </p>
