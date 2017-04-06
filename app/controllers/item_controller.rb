@@ -37,6 +37,18 @@ class ItemController < ApplicationController
 		current_item.update_attributes(item_params(item))
 	end
 
+	def update_names
+		params.each do |key, item|
+			if item.key?(:id)
+				current_item = Item.find(item[:id].to_i)
+				current_item.update_attributes(item_params(item))
+			end
+		end
+		redirect_to(:back)
+	end
+
+
+
 
 	def item_params(item)
 		item.permit(:name, :category, :amount, :claimed_by, :potluck_id)

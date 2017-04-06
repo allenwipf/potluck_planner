@@ -1,0 +1,56 @@
+<!-- STILL WORKING ON THIS -->
+<% if @potluck_info %>
+
+	<div class="container">
+		
+		<div >
+			<h1> <%= @potluck_info.title %> </h1>
+			<span class="lead"><%= @potluck_info.description %></span><br>
+			<span class="badge alert-warning"><%= @potluck_info.party_size %> people expected</span>
+			<br>
+			<h4> <span class="label label-default">When:</span>  <%= (Time.parse(@potluck_info.date.to_s).strftime('%a, %b %d ')) + " at " + 
+					(Time.parse(@potluck_info.time.to_s).strftime('%l:%M'' %P')) %></h4>
+	        <h4> <span class="label label-default text-black">Where:</span> <%= @potluck_info.location %> </h4>	
+		</div>
+
+		<form action="/item/<%=@potluck_info.id%>'" method="post">
+			<table class="table">
+				<thead class="">
+					<tr class="table-bordered">
+						<th>Item Name</th>
+						<th>Category</th>
+						<th>Amount</th>
+						<th>Claimed By</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody class="list_items table-bordered">
+
+					<% @potluck_info.items.sort_by {|item| item.id}.reverse.each do |item|  %>
+			  			<%= fields_for "item[]", item do |item_f| %>
+								<tr class="item_row">
+								 <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+									<td><%= item_f.text_field :name, readonly: true, class: 'form-control item_name'%></td>
+									<td><%= item_f.text_field :category, readonly: true, class: 'form-control'%></td>
+									<td><%= item_f.text_field :amount, readonly: true, class: 'form-control'%></td>
+									<td><%= item_f.text_field :claimed_by, class: 'form-control'%></td>
+									<td><%= item_f.text_field :delete, :value => "0", readonly: true, class: 'collapse delete_row'%>
+									<%= item_f.number_field :potluck_id, readonly: true, class: 'collapse form-control potluck_id'%></td>
+								</tr>
+						<% end %>
+					<% end %>	
+				</tbody>
+			</table>
+			<button class="btn btn-success" name="commit" type='submit'>Save Items <span class="glyphicon glyphicon-save"></button>
+		</form>
+		<span>
+			<% if session[:user_id] != nil && @potluck_info.authorized_user(session[:user_id]) %>
+				<a class="btn btn-default share_button" href="/potluck/<%=@potluck_info.id%>" role="button">Admin Settings <span class="glyphicon glyphicon-share"></span></a>
+			<% end %>
+		</span>
+	</div>
+<% else %>
+
+	<h1>There is no potluck here!</h1>
+
+<% end %> 

@@ -33,7 +33,10 @@ class PotluckController < ApplicationController
 	    redirect_to("/user/show")
 	end
 
+	def potluck_view
+		@potluck_info = Potluck.find(params[:id])
 
+	end
 
 	def potluck_params
 		params.require(:potluck).permit(:title, :location, :description, :date, :time, :party_size, :user_id)

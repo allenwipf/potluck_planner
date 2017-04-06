@@ -29,7 +29,7 @@
   </div>
 
 	<div class="col-md-3">
-		<a class="btn btn-default share_button" href="/potluck_view/<%@potluck.id%>>" role="button">Shareable Link  <span class="glyphicon glyphicon-share"></span></a>
+		<a class="btn btn-default share_button" href="/potluck_view/<%=@potluck.id%>" role="button">Shareable Link  <span class="glyphicon glyphicon-share"></span></a>
 
 		<form action="/potluck/<%=@potluck.id%>" method="post">
 			<button class="btn btn-danger navbar-btn" onclick="return confirm('Are you sure?')" name="id" value='<%=@potluck.id%>'>Delete Potluck  <span class="glyphicon glyphicon-remove"> </span></button>

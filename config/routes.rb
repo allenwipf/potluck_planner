@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get  '/logout' => 'login#destroy'
   post "item/:id" => 'item#update'
   post 'potluck/:id' => 'potluck#destroy'
+  get 'potluck_view/:id' => 'potluck#potluck_view'
   resources :potluck
   resources :item
   resources :user
