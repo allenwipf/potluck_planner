@@ -8,6 +8,23 @@
 			</form>
 
 			<div class="users_potlucks list-group">
+					<div class="list-group-item">
+
+						<h1>This Potluck</h1>
+
+						<span class="lead">Allen invites you to his special potluck.</span><br>
+						<span>14 people expected</span>
+						<h4>Apr 23 + " at " + 2:30PM %></h4>
+				    <h4> Omaha, NE </h4>
+				      <form action="/potluck/<%= potluck.id %>" >
+								<button class="btn btn-default admin-potluck-view" type='submit'>
+									View/Edit<span class="glyphicon glyphicon-pencil borderless"></span>
+								</button>
+							</form>
+			    </div>
+			</div>
+
+		<!-- 	<div class="users_potlucks list-group">
 				<% @current_user.potlucks.each do |potluck| %>
 					<div class="list-group-item">
 
@@ -25,7 +42,7 @@
 						</form>
 			    	</div>
 				<% end %>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
