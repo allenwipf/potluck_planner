@@ -20,14 +20,14 @@
 								<h4> <%= potluck.location %> </h4>
 								<span class="text-muted"><%= potluck.description %></span><br>
 								<span><%= potluck.party_size %> people expected</span>
+								<!-- view edit delete buttons -->
 								<form action="/potluck/<%= potluck.id %>" >
-									
+									<div class="btn-group" style="margin:5px 0 10px 0;">
+										<button class="btn btn-default admin-potluck-view" type='submit'>Edit <span class="glyphicon glyphicon-edit borderless"></span></button>
+										<button class="btn btn-default admin-potluck-view" type='submit'>View <span class="glyphicon glyphicon-search borderless"></span></button>
+										<button class="btn btn-default admin-potluck-view" type='submit'>Delete <span class="glyphicon glyphicon-exclamation-sign borderless"></span></button>
+									</div>
 								</form>
-								<div class="btn-group" style="margin:5px 0 10px 0;">
-									<button class="btn btn-default admin-potluck-view" type='submit'>Edit <span class="glyphicon glyphicon-edit borderless"></span></button>
-									<button class="btn btn-default admin-potluck-view" type='submit'>View <span class="glyphicon glyphicon-search borderless"></span></button>
-									<button class="btn btn-default admin-potluck-view" type='submit'>Delete <span class="glyphicon glyphicon-exclamation-sign borderless"></span></button>
-								</div>
 
 							</div>
 				    </div>
@@ -36,25 +36,6 @@
 				<% end %>
 			</div>
 
-		<!-- <div class="users_potlucks list-group">
-				<% @current_user.potlucks.each do |potluck| %>
-					<div class="list-group-item">
-
-						<h1><%= potluck.title.capitalize %></h1>
-
-						<span class="lead"><%= potluck.description %></span><br>
-						<span><%= potluck.party_size %> people expected</span>
-						<h4><%= (Time.parse(potluck.date.to_s).strftime('%a, %b %d ')) + " at " + 
-								(Time.parse(potluck.time.to_s).strftime('%l:%M'' %P')) %></h4>
-				        <h4> <%= potluck.location %> </h4>
-
-
-				        <form action="/potluck/<%= potluck.id %>" >
-							<button class="btn btn-default admin-potluck-view" type='submit'>View/Edit <span class="glyphicon glyphicon-pencil borderless"></span></button>
-						</form>
-			    	</div>
-				<% end %>
-			</div> -->
 		</div>
 	</div>
 </div>
