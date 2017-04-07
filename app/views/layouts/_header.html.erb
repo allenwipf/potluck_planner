@@ -22,7 +22,7 @@
 	<div class="breadcrumb lower_header">
 		<div class="container">
 			<% if !@current_user.id.nil? %>
-			<li class="greeting">WELCOME <%= @current_user.name.downcase.capitalize %></li>
+			<li class="greeting">Welcome <%= @current_user.name.downcase.capitalize %></li>
 			<% else %>
 			<li class="greeting">Oh, Hi There!</li>
 			<% end %>			

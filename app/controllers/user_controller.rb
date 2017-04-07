@@ -4,6 +4,9 @@ class UserController < ApplicationController
 		redirect_to root_path
 	end
 
+	# Creates a new User and signs user in. 
+	#
+	# # Receives params as parameters.
 	def create
     	@user = User.new(user_params)   	
 	    if @user.save && @user.authenticate(params[:user][:password])
@@ -15,6 +18,7 @@ class UserController < ApplicationController
 	    end
   	end
 
+  	# Permits certain User params to be saved to database
 	def user_params
 		params.require(:user).permit(:name, :email, :password,
 													:password_confirmation)
