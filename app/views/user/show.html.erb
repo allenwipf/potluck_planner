@@ -1,30 +1,42 @@
 <div class="container bottom_space">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
+		<div class="col-md-5 col-md-offset-3">
 			<h2>Current Potlucks</h2> 
 		
-			<form action="/potluck/new" method="get">
+			<form action="/potluck/new" method="get" class="row">
 				<button class="btn btn-success admin-potluck-update button_margin" type='submit'>Make New Potluck <span class="glyphicon glyphicon-new-window"></span></button>
 			</form>
 
 			<div class="users_potlucks list-group">
-					<div class="list-group-item">
+				<% @current_user.potlucks.each do |potluck| %>
+					<div class="a_potluck">
+						<div class="row">
+							<div class="col-md-4 padding">
+								<h1><%= (Time.parse(potluck.date.to_s).strftime('%a, %b %d ')) %></h1>
+								<h4><%= (Time.parse(potluck.time.to_s).strftime('%l:%M'' %P')) %></h4>
+							</div>
+							<div class="col-md-offset-5 text-left padding">
+								<h1><%= potluck.title.capitalize %></h1>
+								<h4> <%= potluck.location %> </h4>
+								<span class="text-muted"><%= potluck.description %></span><br>
+								<span><%= potluck.party_size %> people expected</span>
+								<form action="/potluck/<%= potluck.id %>" >
+									
+								</form>
+								<div class="btn-group" style="margin:5px 0 10px 0;">
+									<button class="btn btn-default admin-potluck-view" type='submit'>Edit <span class="glyphicon glyphicon-edit borderless"></span></button>
+									<button class="btn btn-default admin-potluck-view" type='submit'>View <span class="glyphicon glyphicon-search borderless"></span></button>
+									<button class="btn btn-default admin-potluck-view" type='submit'>Delete <span class="glyphicon glyphicon-exclamation-sign borderless"></span></button>
+								</div>
 
-						<h1>This Potluck</h1>
-
-						<span class="lead">Allen invites you to his special potluck.</span><br>
-						<span>14 people expected</span>
-						<h4>Apr 23 + " at " + 2:30PM %></h4>
-				    <h4> Omaha, NE </h4>
-				      <form action="/potluck/<%= potluck.id %>" >
-								<button class="btn btn-default admin-potluck-view" type='submit'>
-									View/Edit<span class="glyphicon glyphicon-pencil borderless"></span>
-								</button>
-							</form>
-			    </div>
+							</div>
+				    </div>
+						
+					</div>
+				<% end %>
 			</div>
 
-		<!-- 	<div class="users_potlucks list-group">
+		<!-- <div class="users_potlucks list-group">
 				<% @current_user.potlucks.each do |potluck| %>
 					<div class="list-group-item">
 

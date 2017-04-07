@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.padding{
+	padding:10px;
+}
+
+
 .button_margin{
 	margin: 10px 0 10px 0;
 }
@@ -72,4 +77,8 @@
 
 .bottom_space{
 	margin-bottom:50px;
+}
+
+.a_potluck{
+    border-bottom: thin solid gray;
 }
