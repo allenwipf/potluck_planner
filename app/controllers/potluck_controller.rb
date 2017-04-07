@@ -20,7 +20,6 @@ class PotluckController < ApplicationController
 	# Receives params as parameters.
 	def create
 		@potluck = Potluck.new(potluck_params)
-
 		if @potluck.save
 			flash[:success] = "Potluck saved successfully! Add items below."
 			redirect_to @potluck
@@ -42,10 +41,12 @@ class PotluckController < ApplicationController
 	end
 
 	# Returns a Potluck object by id given in params
+	# 
+	# Returns Potluck object or nil
 	def potluck_view
-		@potluck_info = Potluck.find(params[:id])
-
+		@potluck_info = Potluck.exists?(params[:id]) ? Potluck.find(params[:id]) : nil 
 	end
+
 
 	# Permits certain Potluck params to be saved to database
 	def potluck_params
