@@ -31,7 +31,7 @@
 									<td><%= item_f.text_field :name, disabled: true, class: 'item_name no_edit'%></td>
 									<td><%= item_f.text_field :category, disabled: true,  placeholder: "category", class: 'no_edit'%></td>
 									<td><%= item_f.text_field :amount, disabled: true,  placeholder: "amount", class: 'no_edit'%></td>
-									<td><%= item_f.text_field :claimed_by, placeholder: "claim!"%></td>
+									<td><%= item_f.text_field :claimed_by, placeholder: "Enter name to claim"%></td>
 									<td><%= item_f.text_field :delete, :value => "0", readonly: true, class: 'collapse delete_row'%>
 									<%= item_f.number_field :potluck_id, readonly: true, class: 'collapse form-control potluck_id'%></td>
 								</tr>
