@@ -16,16 +16,16 @@
           <%= render 'layouts/errors' %>
           <%= form_for(@current_user, url:{controller: "user", action: "create"}) do |f| %>
             
-          <%= f.label :name %>
+          <%= f.label :name, class: "label-padding" %>
           <%= f.text_field :name, class: 'form-control' %>
 
-          <%= f.label :email  %>
+          <%= f.label :email, class: "label-padding"  %>
           <%= f.text_field :email, class: 'form-control' %>
 
-          <%= f.label :password %>
+          <%= f.label :password, class: "label-padding" %>
           <%= f.password_field :password, class: 'form-control' %>
 
-          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.label :password_confirmation, "Confirmation", class: "label-padding" %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
 
           <%= f.submit "Submit", class: "btn button_margin btn-primary" %>
