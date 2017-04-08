@@ -12,27 +12,24 @@
          <h4 class="modal-title">Sign Up</h4>
       </div>
 
-        <div class="modal_form">
+      <div class="modal_form">
           <%= render 'layouts/errors' %>
           <%= form_for(@current_user, url:{controller: "user", action: "create"}) do |f| %>
             
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
 
-            <%= f.label :email  %>
-            <%= f.text_field :email, class: 'form-control' %>
+          <%= f.label :email  %>
+          <%= f.text_field :email, class: 'form-control' %>
 
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
 
-            <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-            <%= f.submit "Submit", class: "btn button_margin btn-primary" %>
-          <% end %>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Submit", class: "btn button_margin btn-primary" %>
+        <% end %>
       </div>
    </div>
   </div>
