@@ -4,7 +4,7 @@ class LoginController < ApplicationController
 	 user = User.find_by(email: params[:user][:email])
     if user && user.authenticate(params[:user][:password])
     	session[:user_id] = user.id
-	    flash[:success] = "You are logged In!"
+	    flash[:success] = "Welcome!"
 	    redirect_to '/user/show'
     else
     	flash[:danger] = 'Wrong username or password'
@@ -14,7 +14,7 @@ class LoginController < ApplicationController
 
 	def destroy
 		session[:user_id] = nil
-		flash[:success] = "Successfully logged out"
+		flash[:success] = "Logged out"
   	    redirect_to root_path
 	end
 
