@@ -13,13 +13,16 @@
       </div>
 
       <div class="modal_form">
-        <%= form_for(@current_user, url:{controller: "login", action: "create"}, :html => {:class => 'form-group'}) do |f| %>
+        <%= form_for(@current_user, url:{controller: "login", action: "create"}, :html => {:class => 'form-group', :id => "user_id_login"}) do |f| %>
           <%= f.label :email, class: "label-padding" %>
-          <%= f.text_field :email, class: 'form-control input-sm' %>
+          <%= f.text_field :email, class: 'form-control input-sm' id: 'login_email'%>
           <%= f.label :password, class: "label-padding" %>
-          <%= f.password_field :password, class: 'form-control input-sm' %>
+          <%= f.password_field :password, class: 'form-control input-sm', id: 'login_password' %>
           <%= f.submit "Submit", class: "btn button_margin btn-primary" %>
         <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

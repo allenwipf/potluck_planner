@@ -6,15 +6,12 @@
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">
 				<% if !@current_user.id.nil? %>
-					<li><a href="/potluck/new" method="get"><span class="glyphicon glyphicon-plus"></span>  New Potluck</a></li>
-				  <li><a href="/user/shows"><span class="glyphicon glyphicon-list"></span>  My Potlucks</a></li>
+						<li><a href="/potluck/new" method="get"><span class="glyphicon glyphicon-plus"></span>  New Potluck</a></li>
+				    <li><a href="/user/shows"><span class="glyphicon glyphicon-list"></span>  My Potlucks</a></li>
 					<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>  Logout</a></li>
 				<% else  %>
-					<%= render 'layouts/loginModal' %>
-					<%= render 'layouts/modal' %>
-				 	   <li><a href="#" data-toggle="modal" data-target="#login_modal"><span class="glyphicon glyphicon-user"></span>Log In</a></li>
-				 	   <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
-				    </ol>
+				 	<li><a href="#" data-toggle="modal" data-target="#login_modal"><span class="glyphicon glyphicon-user"></span>Log In</a></li>
+				 	<li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
 				<% end %>
 			</ul>
 	  </div>
@@ -30,5 +27,8 @@
 			</div>			
 		</div>
 	</div>
+
+	<%= render 'layouts/loginModal' %>
+	<%= render 'layouts/modal' %>
 
 </header>

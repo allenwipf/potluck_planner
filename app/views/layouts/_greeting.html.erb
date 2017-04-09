@@ -1,5 +1,5 @@
 <% if !@current_user.id.nil? %>
-	<li class="greeting text-muted">WELCOME <%= @current_user.name.downcase.capitalize %></li>
+	<span class="greeting text-muted">Welcome <%= @current_user.name.downcase.split.map(&:capitalize).join(' ')%></span>
 <% else %>
-	<li class="greeting text-muted">Oh, Hi There!</li>
-<% end %>		
+	<span class="greeting text-muted">Oh, Hi There!</span>
+<% end %>	

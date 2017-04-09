@@ -26,7 +26,7 @@ function new_item(e){
 
 // Creates a new comment row.
 // 
-// returns a String
+// Returns a String.
 function new_row_info(potluck_id){
 	var rowid =  Date.now();
 	return  "<tr class='item_row'>"+
