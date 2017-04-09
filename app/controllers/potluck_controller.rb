@@ -29,10 +29,6 @@ class PotluckController < ApplicationController
 		end
 	end
 
-	def set_slug
-
-	end
-
 	# Deletes a Potluck if the user is authorized to owns the Potluck.
 	# 
 	# Receives params as parameters.
