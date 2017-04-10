@@ -1,4 +1,5 @@
-[![frontpage](app/assets/images/Screenshot.png)
+[![frontpage](app/assets/images/Screenshot.png)]
+[![solarized dualmode](https://github.com/altercation/solarized/raw/master/img/solarized-yinyang.png)](#features)
 
 == README
 
