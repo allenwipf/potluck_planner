@@ -1,4 +1,4 @@
-window.addEventListener("load", function(){
+window.addEventListener('turbolinks:load', function(){
 
     document.getElementById("new_item").addEventListener("click", new_item);
     add_items_listener();

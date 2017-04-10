@@ -3,6 +3,7 @@ class PotluckController < ApplicationController
 	# Returns a Potluck object as instants variable if it exists or assigns nil to that variable if it doesn't.
 	def show
 		@potluck = Potluck.exists?(params[:id]) ? Potluck.find(params[:id]) : nil
+		render 'show'
 	end
 
 	# Sorts items so they appear in order created desc. 
