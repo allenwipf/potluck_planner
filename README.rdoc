@@ -1,28 +1,18 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Potluck Manager.
 
-Things you may want to cover:
+The purpose of the project was to create a management system to reduce the duplication of items brought when people attend a potluck event.
 
-* Ruby version
+ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin16]
 
-* System dependencies
+Rails 4.2.8
 
-* Configuration
+To get Potluck Manager up and running you nedd to have these, and clone the repository.
 
-* Database creation
+Run bundle install to install all the relevant gems.
 
-* Database initialization
+The Database used in this is SQLite3, so you will need a development.sqlite3 file in the db directory
+and you should be able to rake db:migrate
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
