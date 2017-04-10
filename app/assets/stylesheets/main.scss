@@ -49,10 +49,6 @@ span{
 	padding: 70px 0 380px 0;
 }
 
-.header{
-	border-radius:0px;
-}
-
 .top_header{
 	display:flex;
 	align-items: center;
@@ -65,7 +61,7 @@ span{
 }
 
 .navbar-inverse{
-	border-radius: 0px;
+	border-radius: 0px !important;
 	margin-bottom: 0px !important;
 }
 
