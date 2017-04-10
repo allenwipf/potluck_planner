@@ -1,5 +1,4 @@
-![ScreenShot](https://raw.github.com/allenwipf/potluck_planner/blob/master/app/assets/images/Screenshot.png?raw=true)
-
+https://raw.github.com/allenwipf/potluck_planner/master/app/assets/images/Screenshot.png
 == README
 
 
