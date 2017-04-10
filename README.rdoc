@@ -1,7 +1,7 @@
-[![frontpage](app/assets/images/Screenshot.png)]
-[![solarized dualmode](https://github.com/altercation/solarized/raw/master/img/solarized-yinyang.png)](#features)
+![ScreenShot](https://raw.github.com/allenwipf/potluck_planner/blob/master/app/assets/images/Screenshot.png?raw=true)
 
 == README
+
 
 This is a Potluck Manager.
 
