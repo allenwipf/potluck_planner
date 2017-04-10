@@ -10,9 +10,9 @@ ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin16]
 
 Rails 4.2.8
 
-To get Potluck Manager up and running you nedd to have these, and clone the repository.
+To get Potluck Manager up and running you need these versions of ruby and Rails, and clone the repository.
 
-Run bundle install to install all the relevant gems.
+Run bundle install from the directory to install all the relevant gems.
 
 The Database used in this is SQLite3, so you will need a development.sqlite3 file in the db directory
 and you should be able to 
