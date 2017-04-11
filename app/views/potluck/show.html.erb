@@ -6,6 +6,7 @@
 
 
 			<div class="row">
+				<h2 class="text-center"> Edit your <%= @potluck.title.capitalize %> Potluck</h2>
 				<input id="p_id" type="hidden" value="<%= @potluck.id %>">
 			  <div class="col-xs-6 col-xs-offset-2">
 			    <%= form_for(@potluck, url: {action: "update"}) do |f| %>
